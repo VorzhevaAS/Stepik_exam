@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
 
 class MainPageLocators:
@@ -11,4 +10,8 @@ class LoginPageLocators():
 
     def user_registration(self):
         email = (By.NAME, "registration-email")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
