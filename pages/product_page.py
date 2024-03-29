@@ -5,12 +5,15 @@ from .base_page import BasePage
 
 class ProductPage(BasePage):
 
+    def go_to_login_from_product_page(self):
+        assert self.is_element_present(By.CSS_SELECTOR, "#login_link")
+
     def add_to_basket(self):
         basket_button = self.browser.find_element(By.CLASS_NAME, "btn-add-to-basket")
         basket_button.click()
 
     def should_not_be_success_message(self): #should_be_added_to_basket_message
-        assert self.is_not_element_present(By.CSS_SELECTOR,
+        assert self.is_element_present(By.CSS_SELECTOR,
                                        "#messages > div:nth-child(1) > div"), "No added to basket message"
             # is_disappeared
     def should_be_correct_price_message(self):
